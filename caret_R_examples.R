@@ -209,3 +209,19 @@ head(yScoredClass)
 
 
 confusionMatrix(data = yScoredClass, reference = yTest)
+
+
+### Exercise
+# Use caret to fit a C5.0 model. Test 100 different models. Maximize ROC.
+# Tell me what tuning parameter results in the "best" model.
+
+
+c5Fit <- train(x = xTrain,
+                y = yTrain,
+                method = "C5.0",
+                tuneLength = 100,
+                trControl = ctrl,
+                metric = "ROC"
+                )
+plot(c5Fit)
+c5Fit
