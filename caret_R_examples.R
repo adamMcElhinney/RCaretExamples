@@ -8,6 +8,15 @@ install_github('adam-m-mcelhinney/helpRFunctions')
 library(helpRFunctions)
 library(RANN)
 
+# Note to get the benefits of parallelization with R, all you have to do is
+# register a cluster, just like in the parallel R presentation!
+library('doParallel')
+library('foreach')
+stopCluster(cl)
+cl <- makeCluster(detectCores()-1)
+registerDoParallel(cl)
+getDoParWorkers()
+
 
 # Determine Rock or Metal (R/M) based off signals from 60 sonar frequencies
 # Frequency values normalized between 0 - 1
@@ -202,7 +211,7 @@ plot(v)
 # If the predict function gives you issues, try calling predict from the
 # final model itself, not through caret.
 yScoredProb <- predict(plsFit, newdata = xTest, type = 'prob')
-head(yScored)
+head(yScoredProb)
 yScoredClass <- predict(plsFit, newdata = xTest, type = 'raw')
 head(yScoredClass)
 
