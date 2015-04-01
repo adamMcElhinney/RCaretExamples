@@ -2,7 +2,7 @@ library('caret')
 library(mlbench)
 library(pls)
 # Taken from here: https://github.com/adam-m-mcelhinney/helpRFunctions
-install.packages('devtools') # Only needed if you dont have this installed.
+#install.packages('devtools') # Only needed if you dont have this installed.
 library(devtools)
 install_github('adam-m-mcelhinney/helpRFunctions')
 library(helpRFunctions)
